@@ -3,15 +3,11 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:service_request/_pageModel/_const/application_theme.dart';
-import 'package:service_request/_services/git_service_locator.dart';
 import 'package:service_request/pages/home_page.dart';
 
-import '_viewModel/barcode_scanner_view_model.dart';
 import '_viewModel/home_page_view_model.dart';
-import '_viewModel/service_request_page_view_model.dart';
 
 void main() {
-  registerGitServices();
   runApp(const ServiceRequestApp());
 }
 
@@ -32,8 +28,6 @@ class ServiceRequestApp extends StatelessWidget {
     return MultiProvider(
         providers: [
           ChangeNotifierProvider<HomePageViewModel>(create: (context) => HomePageViewModel()),
-          ChangeNotifierProvider<ServiceRequestPageViewModel>(create: (context) => ServiceRequestPageViewModel()),
-          ChangeNotifierProvider<BarcodeScannerViewModel>(create: (context) => BarcodeScannerViewModel()),
         ],
         child: MaterialApp(
           initialRoute: "HomePage",

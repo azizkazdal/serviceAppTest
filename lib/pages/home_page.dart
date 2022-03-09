@@ -76,18 +76,10 @@ class _HomePageState extends State<HomePage> {
                                     color: ApplicationTheme.whiteColor,
                                     child: InkWell(
                                       onTap: () {
-                                        viewModel.readBarcode();
                                       },
                                       child: const Icon(Icons.qr_code, size: 90, color: ApplicationTheme.primaryColor),
                                     ),
                                   ),
-                                  // Material(
-                                  //   color: ApplicationTheme.whiteColor,
-                                  //   child: InkWell(
-                                  //     onTap: () {},
-                                  //     child: const Icon(Icons.nfc, size: 90, color: ApplicationTheme.primaryColor),
-                                  //   ),
-                                  // ),
                                 ],
                               ),
                             ),
@@ -102,7 +94,6 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ),
                                 onPressed: () {
-                                  viewModel.findAsset();
                                 },
                                 child: const Text('BUL', style: TextStyle(fontSize: 30)),
                               ),
@@ -129,10 +120,6 @@ class _HomePageState extends State<HomePage> {
 
   afterViewLoaded(BuildContext context, HomePageViewModel? viewModel) {
     try {
-      if (viewModel != null) {
-        viewModel.setDefaults();
-        // viewModel.getAccountServiceRequestInformation();
-      }
     } on Exception {
       rethrow;
     }
